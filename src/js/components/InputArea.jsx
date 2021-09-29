@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { fetchMovie, fetchPoster } from '../actions/actions';
+import { fetchMovie } from '../actions/actions';
 
 class InputArea extends React.Component {
   constructor(props) {
@@ -43,7 +43,6 @@ InputArea.propTypes = {
 const mapDispatchToProps = dispatch => ({
   handleClick: (searchShortCode) => {
     dispatch(fetchMovie(searchShortCode));
-    dispatch(fetchPoster(searchShortCode));
   }
 });
 
