@@ -1,4 +1,7 @@
 import React from 'react';
+import AppTitle from '../../components/AppTitle';
+import InputArea from '../../components/InputArea';
+import MovieCard from '../../components/MovieCard';
 
 class MovieSearchContainer extends React.Component {
   constructor(props) {
@@ -7,8 +10,10 @@ class MovieSearchContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Movie Search Container</h1>
+      <div className='p-5'>
+        <AppTitle className='pb-3' />
+        <InputArea className='mb-3' />
+        <MovieCard />
       </div>
     );
   }
