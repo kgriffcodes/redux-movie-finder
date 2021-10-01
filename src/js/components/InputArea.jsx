@@ -11,6 +11,7 @@ class InputArea extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   handleChange(e) {
@@ -20,16 +21,28 @@ class InputArea extends React.Component {
   }
 
   handleClick() {
-    console.log(this.state.searchTerm);
     const searchTerm = this.state.searchTerm;
     const searchShortCode = searchTerm.replace(' ', '+');
     this.props.handleClick(searchShortCode);
   }
 
+  handleKeyPress(e) {
+    if (e.keyCode === 13) {
+      this.handleClick();
+      console.log('enter!');
+    }
+  }
+
   render() {
     return (
       <div className={ `${this.props.className} inputArea` }>
-        <input name='searchTerm' type='search' onChange={ this.handleChange } />
+        <input
+          id='searchTerm'
+          name='searchTerm'
+          type='search'
+          onChange={ this.handleChange }
+          onKeyPress={ this.handleKeyPress }
+        />
         <button type='submit' onClick={ this.handleClick }>Go!</button>
       </div>
     );

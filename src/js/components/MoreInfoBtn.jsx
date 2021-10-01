@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-export default class MoreInfoBtn extends Component {
-  render() {
-    return (
-      <div>
-        <button>More Information</button>
-      </div>
-    );
-  }
+export default function MoreInfoBtn(props) {
+  return (
+    <div>
+      <button onClick={ props.onClick }>More Information</button>
+    </div>
+  );
 }
