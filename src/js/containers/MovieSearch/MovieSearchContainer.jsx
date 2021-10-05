@@ -22,6 +22,7 @@ class MovieSearchContainer extends React.Component {
               title={ movieChoice.Title }
               year={ movieChoice.Year }
               poster={ movieChoice.Poster }
+              imdbID={ movieChoice.imdbID }
             />
         )) : null}
       </div>
