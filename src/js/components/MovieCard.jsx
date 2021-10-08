@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import MoreInfoBtn from './MoreInfoBtn';
+import { fetchMovieDetails } from '../actions/actions';
 
 function MovieCard(props) {
   // const history = useHistory();
 
-  const { title, year, imdbID } = props;
-
-  const shortName = title.toLowerCase().replace(/ /g, '+');
+  const {
+    title,
+    year,
+    imdbID,
+    handleClick,
+  } = props;
 
   // const handleClick = () => {
-    // history.push(`/${shortName}/${props.imdbID}`);
-    // console.log('history: ', history);
+  //   this.props.handleClick(imdbID);
   // };
 
   return (
@@ -26,8 +29,8 @@ function MovieCard(props) {
         <div>{year}</div>
         {/* <div>{props.movieChoices.Plot}</div> */}
       </div>
-      <Link to={ `/${shortName}/${imdbID}` }>
-        <MoreInfoBtn />
+      <Link to={ `/movie/${imdbID}` }>
+        <MoreInfoBtn onClick={ () => handleClick(imdbID) } />
       </Link>
     </div>
   );
@@ -37,16 +40,24 @@ MovieCard.defaultProps = {
   title: propTypes.string,
   year: propTypes.string,
   imdbID: propTypes.string,
+  handleClick: propTypes.func,
 };
 
 MovieCard.propTypes = {
   title: propTypes.string,
   year: propTypes.string,
   imdbID: propTypes.string,
+  handleClick: propTypes.func,
 };
 
 const mapStoreToProps = (store) => ({
   movieChoices: store.movieChoices,
 });
 
-export default connect(mapStoreToProps, null)(MovieCard);
+const mapDispatchToProps = (dispatch) => ({
+  handleClick: (imdbID) => {
+    dispatch(fetchMovieDetails(imdbID));
+  }
+});
+
+export default connect(mapStoreToProps, mapDispatchToProps)(MovieCard);

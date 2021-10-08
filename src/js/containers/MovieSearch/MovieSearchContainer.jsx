@@ -11,12 +11,13 @@ class MovieSearchContainer extends React.Component {
   }
 
   render() {
+    const { movieChoices } = this.props;
     return (
-      <div className='p-5'>
-        <AppTitle className='pb-3' />
+      <div className='pageContainer p-5'>
+        <AppTitle className='pb-3 pt-3 appTitle' />
         <InputArea className='mb-3' />
-        {this.props.movieChoices.Search ?
-          Array.from(this.props.movieChoices.Search).map(movieChoice => (
+        {movieChoices.Search
+          ? Array.from(movieChoices.Search).map((movieChoice) => (
             <MovieCard
               key={ movieChoice.imdbID }
               title={ movieChoice.Title }
@@ -24,7 +25,7 @@ class MovieSearchContainer extends React.Component {
               poster={ movieChoice.Poster }
               imdbID={ movieChoice.imdbID }
             />
-        )) : null}
+          )) : null}
       </div>
     );
   }

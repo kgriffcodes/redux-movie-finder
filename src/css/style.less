@@ -4,6 +4,15 @@ body {
   font-size: 62.5%;
 }
 
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.appTitle {
+  margin: auto;
+}
+
 .inputArea {
   font-size: 2em;
 }
@@ -18,4 +27,52 @@ body {
 .flexRow {
   display: flex;
   flex-direction: row;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.detailsContainer {
+  border: 1px solid black;
+  border-radius: 5px;
+  max-width: 70%;
+  font-size: 2em;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.movieDetails {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.greenDeets {
+  background-color: rgb(47, 97, 47);
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 990px){
+  .greenDeetsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .greenDeets {
+    margin: 0.5em;
+  }
 }

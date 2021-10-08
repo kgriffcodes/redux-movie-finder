@@ -49,11 +49,15 @@ class InputArea extends React.Component {
   }
 }
 
+InputArea.defaultProps = {
+  className: propTypes.string,
+};
+
 InputArea.propTypes = {
   className: propTypes.string,
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   handleClick: (searchShortCode) => {
     dispatch(fetchMovie(searchShortCode));
   }
